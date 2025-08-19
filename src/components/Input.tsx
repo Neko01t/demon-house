@@ -6,6 +6,7 @@ interface inputProps{
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   regex?:RegExp;
   errorMessage?:string;
+  name?:string;
 };
 // regex for email /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 export default function Input({
@@ -15,6 +16,7 @@ export default function Input({
   onChange,
   regex,
   errorMessage='Invalid Input',
+  name='text',
 }: inputProps){
     const [labelForm, setLableForm] = useState(false);
     function handleLoseFocus(){
@@ -32,6 +34,7 @@ export default function Input({
           {label}
         </label>
         <input
+          name={name}
           type={type}
           value={value}
           onChange={onChange}

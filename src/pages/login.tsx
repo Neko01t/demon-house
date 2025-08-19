@@ -5,13 +5,27 @@ import Input from '../components/Input'
 const Login = () => {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const loginData = {
+      name: email,
+      password : pass
+    }
+    const data = new FormData(e.currentTarget);
+    console.log("json :",loginData);
+    console.log("sending -->", JSON.stringify(loginData))
+    console.log("data sent to server (even tho their is no server yet)")
+  };
+
   return (
-<div className="flex justify-center items-center min-h-screen text-gray-100">
-  <div className="bg-white p-8 rounded-2xl shadow-lg w-96">
+<div className="flex justify-center items-center h-[calc(100vh-64px)] text-gray-400">
+  <div className="bg-white p-8 rounded-2xl w-96 bg-transparent border border-gray-300 shadow-lg">
     <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Login</h2>
 
-    <form className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <Input
+        name="email"
         type="text"
         value={email}
         label="Email"
@@ -21,6 +35,7 @@ const Login = () => {
       />
 
       <Input
+        name="password"
         type="password"
         value={pass}
         label="Password"
@@ -31,7 +46,6 @@ const Login = () => {
 
       <Button
         label="Login"
-        className="w-full py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition"
         onClick={() => console.log("Login clicked")}
       />
     </form>

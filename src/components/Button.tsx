@@ -2,15 +2,14 @@ import React from "react";
 
 interface buttonProps{
   label: string;
-  onClick: ()=>void
+  onClick: ()=>void;
 }
 const Button = ({label, onClick}: buttonProps) =>{
   return (
     <button onClick={onClick}
-    className="px-5 py-3 font-semibold rounded-full
-    overflow-hidden transition text-[#ffff] bg-[#6751a5]
-    hover:bg-[#594391] active:bg-[#4a367a]"
-    >
+    className="w-full px-5 py-3 font-semibold rounded-xl
+             border border-[#6751a5] text-[#6751a5]
+             hover:bg-[#6751a5] hover:text-white transition">
       <span className="relative z-10">{label}</span>
     </button>
   )
