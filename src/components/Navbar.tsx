@@ -10,7 +10,8 @@ import focusedContactIcon from "../assets/contactIconFocus.svg";
 export default function Navbar(){
   const  [hoverd, setHoverd]= useState("");
   return (
-    <div className='flex justify-around items-center mb-5 py-6 h-20 px-2 relative top-0 w-full border-b-2 border-gray-300' >
+    <div className='w-full flex justify-around items-center bg-gray-900 text-white py-6 h-20 px-2
+      sticky z-50 top-0 border-b-2 border-gray-300' >
       <div className=' text-ml font-bold'>
         My Navbar
       </div>
