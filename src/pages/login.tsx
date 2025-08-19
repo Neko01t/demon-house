@@ -1,8 +1,10 @@
 import { React, useState } from "react";
 import Button from '../components/Button'
 import Input from '../components/Input'
-
-const Login = () => {
+interface loginProps {
+    onSwitchForm: (form: 'login' | 'signup') => void;
+}
+const Login = ({onSwitchForm}:loginProps) => {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
 
@@ -53,9 +55,11 @@ const Login = () => {
     {/* Signup link */}
     <p className="text-center text-sm text-gray-600 mt-6">
       Don’t have an account?{" "}
-      <a href="/signup" className="text-blue-600 font-semibold hover:underline">
+      <span
+        className="text-blue-600 font-semibold cursor-pointer hover:underline"
+        onClick={() => onSwitchForm('signup')}>
         Sign up
-      </a>
+      </span>
     </p>
   </div>
 </div>
