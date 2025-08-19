@@ -11,13 +11,19 @@ const Login = ({onSwitchForm}:loginProps) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const loginData = {
-      name: email,
+      email: email,
       password : pass
     }
-    const data = new FormData(e.currentTarget);
-    console.log("json :",loginData);
-    console.log("sending -->", JSON.stringify(loginData))
-    console.log("data sent to server (even tho their is no server yet)")
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.\$%&!#()])[A-Za-z\d.\$%&!#()]{8,64}$/
+    if (emailRegex.test(email) && passwordRegex.test(pass) ) {
+     const data = new FormData(e.currentTarget);
+      console.log("json :",loginData);
+      console.log("sending -->", JSON.stringify(loginData))
+      console.log("data sent to server (even tho their is no server yet)")
+    }else {
+      console.log("Enter right Stuff in Right place")
+    }
   };
 
   return (

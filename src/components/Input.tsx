@@ -28,7 +28,7 @@ export default function Input({
     const [touched,setTouched] = useState(false);
     const  isValid = regex ? regex.test(value) : true;
     return (
-      <div className=' text-[#1c1b21] mb-4 mx-5'>
+      <div className=' text-[#1c1b21] mb-2 mx-4'>
         <label className={`font-md transition-all duration-300 relative ml-3
           ${labelForm || value ? "top-0 text-sm" : "top-9 text-[#49444e]" } `} >
           {label}
