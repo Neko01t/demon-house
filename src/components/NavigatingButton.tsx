@@ -5,10 +5,11 @@ interface navlele{
   focusedIcon: string;
   label: string;
   url?: string;
+  onClick? : ()=>void;
 }
-export default function Navelment({focusedIcon, isActive, icon, label ,url}:navlele){
+export default function Navelment({focusedIcon, onClick ,isActive, icon, label ,url}:navlele){
   return (
-    <div className="w-16 h-16 column flex-col inline-flex items-center justify-center group">
+    <div onClick={onClick} role="button" className="w-16 h-16 column flex-col inline-flex items-center justify-center group">
     {!isActive
       ?<img
       src={icon}

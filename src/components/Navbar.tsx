@@ -6,8 +6,10 @@ import aboutIcon from "../assets/aboutIcon.svg";
 import focusedAboutIcon from "../assets/aboutIconFocus.svg";
 import contactIcon from "../assets/contactIcon.svg";
 import focusedContactIcon from "../assets/contactIconFocus.svg";
-
-export default function Navbar(){
+interface NavProps{
+  onNavigate: (page: "home"| "contact" | "about")=>void;
+}
+export default function Navbar({onNavigate}:NavProps){
   const  [hoverd, setHoverd]= useState("");
   return (
     <div className='w-full flex justify-around items-center bg-gray-900 text-white py-6 h-20 px-2
@@ -21,6 +23,7 @@ export default function Navbar(){
           onMouseEnter={() => setHoverd("home")}
           onMouseLeave={() => setHoverd("")}>
           <Navelement
+            onClick={()=>onNavigate("login")}
             icon={homeIcon}
             isActive={hoverd === "home"} focusedIcon={focusedHomeIcon}
             label={'Home'}/>
@@ -29,6 +32,7 @@ export default function Navbar(){
           onMouseEnter={() => setHoverd("about")}
           onMouseLeave={() => setHoverd("")}
           ><Navelement
+             onClick={()=>onNavigate("home")}
             icon={aboutIcon}
             isActive={hoverd === "about"} focusedIcon={focusedAboutIcon}
             label={'About'}/>
@@ -37,6 +41,7 @@ export default function Navbar(){
           onMouseEnter={() => setHoverd("contact")}
           onMouseLeave={() => setHoverd("")}
           ><Navelement
+            onClick={()=>{onNavigate("about")}}
             icon={contactIcon}
             isActive={hoverd === "contact"} focusedIcon={focusedContactIcon}
             label={'Contact'}/>
