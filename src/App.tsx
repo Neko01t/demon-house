@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Layout onNavigate={setCurrentForm} >
-      {currentForm === 'home' && <Home />}
+      {currentForm === 'home' && <Home onSwitchForm={setCurrentForm}/>}
       {currentForm === 'login' && <Login onSwitchForm={setCurrentForm} />}
       {currentForm === 'signup' && <Signup onSwitchForm={setCurrentForm} />}
       </ Layout>

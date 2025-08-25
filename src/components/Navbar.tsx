@@ -23,7 +23,7 @@ export default function Navbar({onNavigate}:NavProps){
           onMouseEnter={() => setHoverd("home")}
           onMouseLeave={() => setHoverd("")}>
           <Navelement
-            onClick={()=>onNavigate("login")}
+            onClick={()=>onNavigate("home")}
             icon={homeIcon}
             isActive={hoverd === "home"} focusedIcon={focusedHomeIcon}
             label={'Home'}/>
@@ -32,7 +32,7 @@ export default function Navbar({onNavigate}:NavProps){
           onMouseEnter={() => setHoverd("about")}
           onMouseLeave={() => setHoverd("")}
           ><Navelement
-             onClick={()=>onNavigate("home")}
+             onClick={()=>onNavigate("about")}
             icon={aboutIcon}
             isActive={hoverd === "about"} focusedIcon={focusedAboutIcon}
             label={'About'}/>

@@ -1,6 +1,8 @@
 import React from "react";
-
-export default function Home() {
+interface homeProps{
+  onSwitchForm: (form : "login" | "signup" | "home" ) => void
+}
+export default function Home({onSwitchForm}: homeProps) {
   return (
     <div className="flex flex-col items-center justify-center flex-1 text-center px-6 py-12">
       <h2 className="text-4xl font-bold mb-4">Welcome to MyApp 🚀</h2>
@@ -13,8 +15,10 @@ export default function Home() {
         <button className="bg-purple-600 text-white px-6 py-2 rounded-lg shadow hover:bg-purple-700 transition">
           Get Started
         </button>
-        <button className="bg-gray-200 text-gray-800 px-6 py-2 rounded-lg shadow hover:bg-gray-300 transition">
-          Learn More
+        <button
+        onClick={()=>onSwitchForm('login')}
+        className="bg-gray-200 text-gray-800 px-6 py-2 rounded-lg shadow hover:bg-gray-300 transition">
+          login now
         </button>
       </div>
 
