@@ -41,7 +41,7 @@ export default function Navbar({onNavigate}:NavProps){
           onMouseEnter={() => setHoverd("contact")}
           onMouseLeave={() => setHoverd("")}
           ><Navelement
-            onClick={()=>{onNavigate("about")}}
+            onClick={()=>{onNavigate("contact")}}
             icon={contactIcon}
             isActive={hoverd === "contact"} focusedIcon={focusedContactIcon}
             label={'Contact'}/>

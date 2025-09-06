@@ -76,7 +76,7 @@ const Login = ({onSwitchForm}:loginProps) => {
       <span
         className="text-blue-600 font-semibold cursor-pointer hover:underline"
         onClick={() => onSwitchForm('login')}>
-        Sign up
+        Sign in
       </span>
     </p>
   </div>

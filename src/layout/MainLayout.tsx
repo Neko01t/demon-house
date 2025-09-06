@@ -10,7 +10,7 @@ export default function Layout({ children,onNavigate }: LayoutProps) {
   return (
     <>
       <Navbar onNavigate={onNavigate} />
-      <main className="min-h-screen pt-16 pb-16">
+      <main className="min-h-[89vh] pt-2 pb-2">
         {children}
       </main>
       <Footer />

@@ -3,6 +3,8 @@ import Layout from './layout/MainLayout'
 import Login from './pages/login.tsx'
 import Signup from './pages/signup.tsx'
 import Home from './pages/home.tsx'
+import About from './pages/about.tsx'
+import Contact from './pages/contact.tsx'
 function App() {
   const [count, setCount] = useState(0)
   function pop(){
@@ -17,6 +19,8 @@ function App() {
       {currentForm === 'home' && <Home onSwitchForm={setCurrentForm}/>}
       {currentForm === 'login' && <Login onSwitchForm={setCurrentForm} />}
       {currentForm === 'signup' && <Signup onSwitchForm={setCurrentForm} />}
+      {currentForm === 'about' && <About />}
+      {currentForm === 'contact' && <Contact />}
       </ Layout>
     </>
   )
