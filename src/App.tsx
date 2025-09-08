@@ -5,6 +5,7 @@ import Signup from './pages/signup.tsx'
 import Home from './pages/home.tsx'
 import About from './pages/about.tsx'
 import Contact from './pages/contact.tsx'
+import { motion } from 'framer-motion'
 function App() {
   const [count, setCount] = useState(0)
   function pop(){
