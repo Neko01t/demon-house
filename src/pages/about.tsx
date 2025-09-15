@@ -1,76 +1,49 @@
-import React, { useState } from "react";
+import React from "react";
+import Card from "../components/card.tsx";
+import { Globe, Car } from 'lucide-react';
 import { motion } from "framer-motion";
-
-type CardProps = {
-  title: string;
-  shortDesc: string;
-  fullDesc: string;
-  image: string;
-};
-
-const Card: React.FC<CardProps> = ({ title, shortDesc, fullDesc, image }) => {
-  const [hovered, setHovered] = useState(false);
-
-  return (
-    <motion.div
-      layout
-      whileHover={{ scale: 1.05 }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      transition={{ layout: { duration: 0.35, ease: "easeInOut" }, type: "spring", stiffness: 200 }}
-      className="bg-white/90 backdrop-blur-md shadow-xl rounded-2xl overflow-hidden cursor-pointer p-5 flex flex-col gap-4 border border-gray-200 hover:shadow-2xl"
-    >
-      <motion.img
-        layout
-        src={image}
-        alt={title}
-        className={`object-cover rounded-xl transition-all duration-300 ${
-          hovered ? "w-full h-48" : "w-24 h-24"
-        }`}
-      />
-      <motion.div layout className="flex flex-col">
-        <h2 className="text-xl font-bold text-gray-800 mb-2">{title}</h2>
-        <p
-          className={`text-gray-600 text-sm transition-all duration-300 ${
-            hovered ? "line-clamp-none" : "line-clamp-2"
-          }`}
-        >
-          {hovered ? fullDesc : shortDesc}
-        </p>
-      </motion.div>
-    </motion.div>
-  );
-};
-
-const CardGrid: React.FC = () => {
+function About() {
   const cards = [
     {
       title: "Website",
-      shortDesc: "My cool own Website",
+      shortDesc: "My cool website",
       fullDesc:
-        "I have made a Website frontend with React-vite, tailwindcss and framer-motion, it contains my knowledge with react and its libraries.",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAGr6MVLAEzC-6TOV0ZXJHnz1AYqJKSt1HrQ&s",
+        "I built a website frontend with React, Vite, TailwindCSS, and more. It shows my skills with React.",
+      Icon:Globe,
+      link:"www.google.com"
     },
     {
       title: "Car Game",
-      shortDesc: "The game I made with basic knowledge",
+      shortDesc: "My first game",
       fullDesc:
-        "This was my first experience with canvas in HTML and understanding the basics of how websites amaze the internet with their power to be anything.",
-      image: "https://i.pinimg.com/736x/48/99/1f/48991f90e9a0eed6f972f7c310bdd3e0.jpg",
+        "This was my first HTML canvas game. It helped me understand how websites can be interactive.",
+      Icon:Car,
+      link:"www.bing.com"
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-10 flex flex-col items-center gap-8">
-      <h1 className="text-4xl font-extrabold text-gray-800 mb-6">✨ Hover Cards</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
-        {cards.map((card, index) => (
-          <Card key={index} {...card} />
+    <div className="min-h-screen bg-gray-100 p-8 flex flex-col items-center gap-8">
+      <h1 className="text-3xl font-bold text-gray-800">👋 About Me</h1>
+      <p className="text-gray-600 max-w-2xl text-center">
+        Hi, I’m Om! I love building projects with React and exploring web
+        development.
+      </p>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-4xl">
+        {cards.map((card, i) => (
+          <motion.div
+          initial={{x:1000}}
+          animate={{x:0}}
+          transition={{delay:i*0.2, type:"spring",stiffness:225}}
+          >
+          <Card key={i} {...card} />
+          </motion.div>
         ))}
       </div>
     </div>
   );
-};
+}
 
-export default CardGrid;
+export default About;
 
