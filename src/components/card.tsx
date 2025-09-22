@@ -27,12 +27,11 @@ function Card({ title, shortDesc, fullDesc, Icon, link }: CardProps) {
       onMouseLeave={() => setHovered(false)}
       role="button"
       tabIndex={0}
-      className="bg-white shadow-md rounded-lg self-start p-4 cursor-pointer transition-transform"
+      className="bg-white shadow-md rounded-lg self-start group p-4 cursor-pointer transition-transform border border-gray-400 hover:border-gray-800"
     >
-      {Icon && <Icon className="w-6 h-6 text-gray-700" />}
+      {Icon && <Icon className="w-6 h-6 group-hover:scale-[1.5] transition text-gray-700" />}
       <h2 className="text-lg font-bold text-gray-800 mt-2">{title}</h2>
 
-      {/* AnimatePresence handles mounting/unmounting animation */}
       <AnimatePresence mode="wait">
         {hovered ? (
           <motion.p
@@ -40,7 +39,7 @@ function Card({ title, shortDesc, fullDesc, Icon, link }: CardProps) {
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -5 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: 0.25}}
             className="text-sm text-gray-600"
           >
             {fullDesc}

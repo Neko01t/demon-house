@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../components/card.tsx";
-import { Globe, Car } from 'lucide-react';
+import { Globe, Car ,Tractor} from 'lucide-react';
 import { motion } from "framer-motion";
 function About() {
   const cards = [
@@ -20,6 +20,14 @@ function About() {
       Icon:Car,
       link:"www.bing.com"
     },
+    {
+      title:"farm layout game",
+      shortDesc:"Discover newland and make it your farm",
+      fullDesc:"This game have simple contorl with wasd and qe u can land on ground with shift after landing you can create differenet building and based on you layou you get scored ",
+      Icon:Tractor,
+      link:"www.github.com"
+
+    }
   ];
 
   return (
@@ -33,8 +41,8 @@ function About() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-4xl">
         {cards.map((card, i) => (
           <motion.div
-          initial={{x:1000}}
-          animate={{x:0}}
+          initial={{opacity: 0,x:10}}
+          animate={{opacity:1,x:0}}
           transition={{delay:i*0.2, type:"spring",stiffness:225}}
           >
           <Card key={i} {...card} />

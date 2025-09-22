@@ -28,7 +28,7 @@ const Login = ({onSwitchForm}:loginProps) => {
 
   return (
 <div className="flex justify-center items-center h-[calc(100vh-64px)] text-gray-400">
-  <div className="bg-white p-8 rounded-2xl w-96 bg-transparent border-2 border-gray-300 shadow-lg">
+  <div className="bg-white p-8 rounded-2xl w-96 bg-transparent border border-gray-400 focus-within:border-gray-600 shadow-lg">
     <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Login</h2>
 
     <form onSubmit={handleSubmit} className="space-y-4">
